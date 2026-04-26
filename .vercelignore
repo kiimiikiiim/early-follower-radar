@@ -1,0 +1,5 @@
+backend
+database
+.git
+node_modules
+*.md
