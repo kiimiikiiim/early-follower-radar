@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: early-follower-radar-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+    autoDeploy: true
+    healthCheckPath: /ping
+    healthCheckInterval: 30
+    healthCheckTimeout: 10
+    maxInstances: 1
+    minInstances: 1

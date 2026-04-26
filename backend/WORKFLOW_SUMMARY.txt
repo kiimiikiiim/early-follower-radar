@@ -1,0 +1,119 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                    AUTOMATED WORKFLOW SUMMARY                            ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+UPDATED FEATURES IN runScraper.js:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Automatic Backup Management
+  - Backs up previousFollowing.json before updating
+  - Stores backups in data/backups/ with timestamps
+  - Preserves historical state for analysis
+
+✓ State Update
+  - Copies currentFollowing.json → previousFollowing.json
+  - Creates baseline for next signal detection
+
+✓ Automatic Signal Detection
+  - Runs detectSignals.js after scraping
+  - Generates signals.json with new accounts
+  - Scores accounts by number of big followers
+
+COMPLETE WORKFLOW:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Scrape Following Lists
+   └─ Loops through all tracked accounts
+   └─ Consolidates results
+
+2. Save Results
+   └─ Outputs to currentFollowing.json
+
+3. Backup Previous State
+   └─ If previousFollowing.json exists:
+      └─ Copies to data/backups/previousFollowing_YYYY-MM-DD_TIMESTAMP.json
+
+4. Update Previous State
+   └─ Copies currentFollowing.json → previousFollowing.json
+
+5. Run Signal Detection
+   └─ Automatically executes detectSignals.js
+   └─ Compares previous vs current
+   └─ Generates signals.json
+
+QUICK START:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Run the complete workflow with one command:
+
+  node runScraper.js
+
+That's it! Everything else happens automatically.
+
+OUTPUT FILES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+data/currentFollowing.json      Latest following lists (updated)
+data/previousFollowing.json     Previous state (updated)
+data/signals.json               New accounts with scores (updated)
+data/backups/                   Historical backups (timestamped)
+
+EXAMPLE OUTPUT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[10:02:25 PM] 📊 Starting scraper...
+[10:02:25 PM] 📊 Scraping 11 accounts...
+[10:02:30 PM] 📊 [1/11] Scraping @paulg...
+[10:02:45 PM] ✓ Found 87 accounts
+...
+[10:15:30 PM] ✨ Scraping completed!
+[10:15:30 PM] 📊 Managing backups and detecting signals...
+[10:15:30 PM] 📊   Backed up previous state to previousFollowing_2026-04-26_1234567890.json
+[10:15:30 PM] 📊   Saved current state as previous
+[10:15:30 PM] 📊 Running signal detection...
+[10:15:30 PM] ✓ Signal detection completed
+[10:15:30 PM] ✓ All done! 🎉
+
+SIGNALS OUTPUT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[
+  {
+    "username": "tech_writer",
+    "followed_by": ["TechCrunch", "VentureBeat", "forbes"],
+    "score": 3
+  },
+  {
+    "username": "ai_researcher",
+    "followed_by": ["elonmusk", "sama"],
+    "score": 2
+  },
+  ...
+]
+
+SCHEDULING:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Add to crontab for daily runs:
+
+  0 2 * * * cd /home/ubuntu/early-follower-radar/backend && node runScraper.js --quiet
+
+This runs the complete workflow daily at 2:00 AM.
+
+OPTIONS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  --limit <n>           Scrape n accounts per user (default: 100)
+  --accounts <list>     Comma-separated accounts to scrape
+  --quiet               Suppress verbose output
+  --dry-run             Preview without scraping
+  --help                Show help message
+
+DOCUMENTATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AUTOMATED_WORKFLOW.md     Complete workflow documentation
+RUN_SCRAPER_GUIDE.md      Detailed scraper guide
+DETECT_SIGNALS_GUIDE.md   Signal detection guide
+
+═══════════════════════════════════════════════════════════════════════════

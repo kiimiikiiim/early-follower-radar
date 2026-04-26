@@ -1,0 +1,12 @@
+[2026-04-26T02:18:36.782Z] 🚀 Scheduler initialized
+[2026-04-26T02:18:36.782Z] 📅 Scheduled task: Every 6 hours
+[2026-04-26T02:18:36.782Z] ⏰ Cron expression: 0 */6 * * *
+[2026-04-26T02:18:36.782Z] 
+[2026-04-26T02:18:36.809Z] ✓ Cron job scheduled
+
+[2026-04-26T02:18:58.978Z] 🚀 Scheduler initialized
+[2026-04-26T02:18:58.978Z] 📅 Scheduled task: Every 6 hours
+[2026-04-26T02:18:58.978Z] ⏰ Cron expression: 0 */6 * * *
+[2026-04-26T02:18:58.978Z] 
+[2026-04-26T02:18:59.003Z] ✓ Cron job scheduled
+

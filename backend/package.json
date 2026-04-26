@@ -1,0 +1,31 @@
+{
+  "name": "early-follower-radar-backend",
+  "version": "1.0.0",
+  "description": "Backend for Early Follower Radar - Track emerging accounts followed by big players",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "twitter",
+    "x",
+    "scraper",
+    "signals",
+    "emerging-accounts"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "node-cron": "^4.2.1",
+    "playwright": "^1.59.1"
+  }
+}

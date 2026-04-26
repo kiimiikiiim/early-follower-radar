@@ -1,0 +1,50 @@
+[
+  {
+    "username": "tech_writer",
+    "followed_by": [
+      "TechCrunch",
+      "VentureBeat",
+      "forbes"
+    ],
+    "score": 3
+  },
+  {
+    "username": "ai_researcher",
+    "followed_by": [
+      "elonmusk",
+      "sama"
+    ],
+    "score": 2
+  },
+  {
+    "username": "crypto_builder",
+    "followed_by": [
+      "paulg",
+      "naval"
+    ],
+    "score": 2
+  },
+  {
+    "username": "ml_engineer",
+    "followed_by": [
+      "karpathy",
+      "ylecun"
+    ],
+    "score": 2
+  },
+  {
+    "username": "startup_founder",
+    "followed_by": [
+      "paulg",
+      "ycombinator"
+    ],
+    "score": 2
+  },
+  {
+    "username": "emerging_dev",
+    "followed_by": [
+      "paulg"
+    ],
+    "score": 1
+  }
+]

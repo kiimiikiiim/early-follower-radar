@@ -1,0 +1,50 @@
+[
+  {
+    "username": "ai_researcher",
+    "displayName": "AI Researcher",
+    "followed_by": [
+      "elonmusk",
+      "sama"
+    ]
+  },
+  {
+    "username": "crypto_builder",
+    "displayName": "Crypto Developer",
+    "followed_by": [
+      "paulg",
+      "naval"
+    ]
+  },
+  {
+    "username": "emerging_dev",
+    "displayName": "Emerging Developer",
+    "followed_by": [
+      "paulg"
+    ]
+  },
+  {
+    "username": "ml_engineer",
+    "displayName": "ML Engineer",
+    "followed_by": [
+      "karpathy",
+      "ylecun"
+    ]
+  },
+  {
+    "username": "startup_founder",
+    "displayName": "Startup Founder",
+    "followed_by": [
+      "paulg",
+      "ycombinator"
+    ]
+  },
+  {
+    "username": "tech_writer",
+    "displayName": "Tech Writer",
+    "followed_by": [
+      "TechCrunch",
+      "VentureBeat",
+      "forbes"
+    ]
+  }
+]

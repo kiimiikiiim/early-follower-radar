@@ -1,0 +1,25 @@
+[
+  {
+    "username": "existing_dev",
+    "displayName": "Existing Developer",
+    "followed_by": [
+      "paulg"
+    ]
+  },
+  {
+    "username": "old_researcher",
+    "displayName": "Old Researcher",
+    "followed_by": [
+      "elonmusk",
+      "sama"
+    ]
+  },
+  {
+    "username": "legacy_founder",
+    "displayName": "Legacy Founder",
+    "followed_by": [
+      "paulg",
+      "naval"
+    ]
+  }
+]
