@@ -6,15 +6,10 @@ const nextConfig: NextConfig = {
 
   // Optimize images
   images: {
-    unoptimized: true, // For static export if needed
+    unoptimized: true,
   },
 
-  // Environment variables
-  env: {
-    NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:4000',
-  },
-
-  // Headers for CORS and security
+  // Security headers
   async headers() {
     return [
       {
@@ -39,20 +34,6 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
-  },
-
-  // Rewrites for API proxy (optional, for Vercel)
-  async rewrites() {
-    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:4000';
-    
-    return {
-      beforeFiles: [
-        {
-          source: '/api/:path*',
-          destination: `${apiUrl}/api/:path*`,
-        },
-      ],
-    };
   },
 };
 
