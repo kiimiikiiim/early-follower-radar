@@ -10,3 +10,35 @@
 [2026-04-26T02:18:58.978Z] 
 [2026-04-26T02:18:59.003Z] ✓ Cron job scheduled
 
+[2026-04-26T04:00:00.037Z] 🔄 Starting scheduled scraper job...
+[2026-04-26T04:00:00.039Z] 📊 Running scraper...
+[2026-04-26T04:00:00.114Z] 🔄 Starting scheduled scraper job...
+[2026-04-26T04:00:00.114Z] 📊 Running scraper...
+[2026-04-26T06:20:08.281Z] ❌ Error during scheduled job: Command failed: node runScraper.js --quiet
+Error scraping following list for sama: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "https://x.com/sama/following", waiting until "networkidle"[22m
+
+    at scrapeFollowing (/home/ubuntu/early-follower-radar/backend/scraper.js:25:16)
+    at async runScraper (/home/ubuntu/early-follower-radar/backend/runScraper.js:273:23) {
+  name: 'TimeoutError'
+}
+
+[2026-04-26T06:20:08.224Z] ❌ Error during scheduled job: Command failed: node runScraper.js --quiet
+Error scraping following list for paulg: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "https://x.com/paulg/following", waiting until "networkidle"[22m
+
+    at scrapeFollowing (/home/ubuntu/early-follower-radar/backend/scraper.js:25:16)
+    at async runScraper (/home/ubuntu/early-follower-radar/backend/runScraper.js:273:23) {
+  name: 'TimeoutError'
+}
+Error scraping following list for elonmusk: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "https://x.com/elonmusk/following", waiting until "networkidle"[22m
+
+    at scrapeFollowing (/home/ubuntu/early-follower-radar/backend/scraper.js:25:16)
+    at async runScraper (/home/ubuntu/early-follower-radar/backend/runScraper.js:273:23) {
+  name: 'TimeoutError'
+}
+
