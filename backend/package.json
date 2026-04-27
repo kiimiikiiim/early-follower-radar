@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "playwright install chromium"
   },
   "keywords": [
     "twitter",
@@ -20,12 +21,16 @@
   "engines": {
     "node": ">=18.0.0"
   },
+  "optionalDependencies": {
+    "@playwright/test": "^1.59.1"
+  },
   "dependencies": {
     "better-sqlite3": "^11.8.1",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "node-cron": "^4.2.1",
-    "playwright": "^1.59.1"
+    "playwright": "^1.59.1",
+    "@playwright/browser-chromium": "^1.59.1"
   }
 }
