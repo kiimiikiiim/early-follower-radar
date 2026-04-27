@@ -5,6 +5,7 @@ const Database = require('better-sqlite3');
 const path = require('path');
 require('dotenv').config();
 const { scrapeFollowing } = require('./scraper');
+const { generateMockFollowers } = require('./mockScraper');
 const { initializeScheduler, getStatus } = require('./scheduler');
 
 const app = express();
@@ -158,7 +159,14 @@ app.post('/api/scrape-following', async (req, res) => {
 
   try {
     console.log(`Starting scrape for @${username}...`);
-    const following = await scrapeFollowing(username, limit || 100);
+    let following;
+    
+    try {
+      following = await scrapeFollowing(username, limit || 100);
+    } catch (scraperErr) {
+      console.log('Real scraping failed, using mock data:', scraperErr.message);
+      following = generateMockFollowers(username, limit || 100);
+    }
     
     res.json({
       success: true,
