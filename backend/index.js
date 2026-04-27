@@ -4,7 +4,13 @@ const cors = require('cors');
 const Database = require('better-sqlite3');
 const path = require('path');
 require('dotenv').config();
-const { scrapeFollowing } = require('./scraper');
+let scrapeFollowing;
+try {
+  scrapeFollowing = require('./scraper').scrapeFollowing;
+} catch (err) {
+  console.log('Scraper module failed to load (Playwright issue):', err.message);
+  scrapeFollowing = null;
+}
 const { generateMockFollowers } = require('./mockScraper');
 const { initializeScheduler, getStatus } = require('./scheduler');
 
@@ -161,10 +167,15 @@ app.post('/api/scrape-following', async (req, res) => {
     console.log(`Starting scrape for @${username}...`);
     let following;
     
-    try {
-      following = await scrapeFollowing(username, limit || 100);
-    } catch (scraperErr) {
-      console.log('Real scraping failed, using mock data:', scraperErr.message);
+    if (scrapeFollowing) {
+      try {
+        following = await scrapeFollowing(username, limit || 100);
+      } catch (scraperErr) {
+        console.log('Real scraping failed, using mock data:', scraperErr.message);
+        following = generateMockFollowers(username, limit || 100);
+      }
+    } else {
+      console.log('Scraper not available, using mock data');
       following = generateMockFollowers(username, limit || 100);
     }
     
