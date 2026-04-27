@@ -344,8 +344,12 @@ app.listen(PORT, () => {
   console.log(`⏰ Scheduler endpoint:`);
   console.log(`   - GET /api/scheduler/status (scheduler status)`);
   
-  // Initialize scheduler
-  initializeScheduler();
+  // Initialize scheduler (disabled due to Playwright issues)
+  try {
+    initializeScheduler();
+  } catch (err) {
+    console.log('Scheduler initialization failed:', err.message);
+  }
 });
 
 // Graceful shutdown
