@@ -4,14 +4,11 @@ const cors = require('cors');
 const Database = require('better-sqlite3');
 const path = require('path');
 require('dotenv').config();
-let scrapeFollowing;
-try {
-  scrapeFollowing = require('./scraper').scrapeFollowing;
-} catch (err) {
-  console.log('Scraper module failed to load (Playwright issue):', err.message);
-  scrapeFollowing = null;
-}
+// Scraper disabled due to Playwright issues on Railway
+// Will use mock data instead
+// const { scrapeFollowing } = require('./scraper');
 const { generateMockFollowers } = require('./mockScraper');
+const scrapeFollowing = null; // Disabled
 const { initializeScheduler, getStatus } = require('./scheduler');
 
 const app = express();
