@@ -15,8 +15,15 @@ app.use(cors());
 app.use(express.json());
 
 // Database setup
-const dbPath = path.join(__dirname, '../database/radar.db');
+const dbDir = path.join(__dirname, 'data');
+const dbPath = path.join(dbDir, 'radar.db');
 let db;
+
+// Create database directory if it doesn't exist
+if (!fs.existsSync(dbDir)) {
+  fs.mkdirSync(dbDir, { recursive: true });
+  console.log('Created database directory at:', dbDir);
+}
 
 try {
   db = new Database(dbPath);
